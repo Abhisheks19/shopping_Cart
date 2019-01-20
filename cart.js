@@ -3,7 +3,15 @@ var itemQuantity = 0;
 var itemPrice = 0;
 
 function addToCart(data) {
-  return cartItems.push(data);
+  if (cartItems.filter(item => item.id == data.id).length == 0) {
+    return cartItems.push(data);
+  } else {
+    return cartItems.forEach((item, index) => {
+      if (item.id === data.id) {
+        cartItems[index].qty = cartItems[index].qty + data.qty;
+      }
+    });
+  }
 }
 
 function calculateCost() {
@@ -24,9 +32,9 @@ function getItemPrice() {
 }
 
 module.exports = {
-  cartItems,
   addToCart,
   calculateCost,
+  cartItems,
   getItemQuantity,
   getItemPrice
 };
