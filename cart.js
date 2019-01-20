@@ -1,6 +1,9 @@
 var cartItems = [];
 var itemQuantity = 0;
 var itemPrice = 0;
+var totalPrice = "0";
+var taxRate = 12.5;
+var taxAmount = 0;
 
 function addToCart(data) {
   if (cartItems.filter(item => item.id == data.id).length == 0) {
@@ -21,6 +24,11 @@ function calculateCost() {
     .toFixed(2);
 }
 
+function calculateTaxAmount() {
+  // console.log('aaaaaaa' + taxAmount)
+  // return taxAmount = (taxRate / 100) * 279.96;
+}
+
 function getItemQuantity() {
   cartItems.forEach(value => (itemQuantity = value.qty));
   return itemQuantity;
@@ -36,5 +44,8 @@ module.exports = {
   calculateCost,
   cartItems,
   getItemQuantity,
-  getItemPrice
+  getItemPrice,
+  totalPrice,
+  taxAmount,
+  calculateTaxAmount
 };
