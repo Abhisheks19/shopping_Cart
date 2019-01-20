@@ -24,9 +24,9 @@ function getItemPrice() {
 }
 
 module.exports = {
+  cartItems,
   addToCart,
   calculateCost,
-  cartItems,
   getItemQuantity,
   getItemPrice
 };
