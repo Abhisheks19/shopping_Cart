@@ -16,27 +16,26 @@ describe("Step3", () => {
   });
 
   it("Shopping Cart should contains 2 Dove Soap", () => {
-    expect(cart.getItemQuantity()).toEqual(2);
+    expect(cart.cartItems[0].qty).toEqual(2);
   });
 
   it("Dove Soap with a unit price of 39.99", () => {
-    expect(cart.getItemPrice()).toEqual(39.99);
+    expect(cart.cartItems[0].price).toEqual(39.99);
   });
 
   it("Shopping Cart should contains 2 Axe Deo", () => {
-    expect(cart.getItemQuantity()).toEqual(2);
+    expect(cart.cartItems[1].qty).toEqual(2);
   });
 
   it("Axe Deo with a unit price of 99.99", () => {
-    expect(cart.getItemPrice()).toEqual(99.99);
+    expect(cart.cartItems[1].price).toEqual(99.99);
   });
 
   it("Shopping Cart sales tax amount to be 35", () => {
-    cart.calculateTaxAmount();
-    expect(cart.taxAmount).toEqual(35);
+    expect(cart.calculateTaxAmount()).toEqual(35);
   });
 
-  it("Shopping Cart total price to be 279.96", () => {
-    expect(cart.calculateCost()).toEqual("279.96");
+  it("Shopping Cart total price to be 314.96", () => {
+    expect(cart.totalCartPrice()).toEqual(314.96);
   });
 });

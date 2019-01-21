@@ -1,20 +1,8 @@
 var cartItems = [];
-var itemQuantity = 0;
-var itemPrice = 0;
-var totalPrice = "0";
 var taxRate = 12.5;
-var taxAmount = 0;
 
 function addToCart(data) {
-  if (cartItems.filter(item => item.id == data.id).length == 0) {
-    return cartItems.push(data);
-  } else {
-    return cartItems.forEach((item, index) => {
-      if (item.id === data.id) {
-        cartItems[index].qty = cartItems[index].qty + data.qty;
-      }
-    });
-  }
+  return cartItems.push(data);
 }
 
 function calculateCost() {
@@ -25,27 +13,17 @@ function calculateCost() {
 }
 
 function calculateTaxAmount() {
-  // console.log('aaaaaaa' + taxAmount)
-  // return taxAmount = (taxRate / 100) * 279.96;
+  return Math.round((taxRate / 100) * calculateCost());
 }
 
-function getItemQuantity() {
-  cartItems.forEach(value => (itemQuantity = value.qty));
-  return itemQuantity;
-}
-
-function getItemPrice() {
-  cartItems.forEach(value => (itemPrice = value.price));
-  return itemPrice;
+function totalCartPrice() {
+  return +calculateCost() + +calculateTaxAmount();
 }
 
 module.exports = {
+  cartItems,
   addToCart,
   calculateCost,
-  cartItems,
-  getItemQuantity,
-  getItemPrice,
-  totalPrice,
-  taxAmount,
-  calculateTaxAmount
+  calculateTaxAmount,
+  totalCartPrice
 };
