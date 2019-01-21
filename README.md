@@ -6,7 +6,7 @@
 
 Step 1 : Go to the project directory and install npm by using the command -- npm install
 
-Step 3 : To run the Unit test case run the command -- npm test
+Step 2 : To run the Unit test case run the command -- npm test
 
 # Packages used to write the Unit test case
 
